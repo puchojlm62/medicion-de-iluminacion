@@ -4,6 +4,11 @@
     margin:0;
   }
 
+  body {
+    font-size: 14px;
+    background-color: rgb(44, 44, 44);
+  }
+
   header{
     padding:   2% 0% 0% 15%;
     height: 80px;
@@ -28,6 +33,7 @@
     list-style: none; 
     display: flex;
     gap: 40px;
+  
   }
 
   .nav__links a{
@@ -35,10 +41,16 @@
     color: white;
     font-family: Montserrat;
     font-weight: SemiBold;
-    font-size: 36;   
+    font-size: 48;  
+    height: 50px;
+    padding: 15px 15px;
   }
 .nav__links a:hover{
     color: coral;
+}
+
+.nav__links li{
+  font-size: 24px;
 }
 
 .hamburguesa{
@@ -54,6 +66,162 @@
     margin: 4px 0;
     transition: 0.3s;
 }
+
+.logo{
+  margin: 0;
+  height: 70px;
+  width: 70px;
+  position:absolute;
+  top: 5px;
+  left: 20px;
+}
+
+/* Sección de entrada */
+.input-section {
+  background-color: lightgray;
+  border: 1px solid black;
+  border-radius: 64px 64px 0 0;
+  display: flex;
+  align-items:normal;
+  padding: 20px;
+  width: 100%;
+}
+
+/* Títulos */
+.main-title {
+  font-size: 48px;
+  font-family: "Montserrat", SemiBold;
+  font-weight: 900;
+  font-style: italic;
+  color: var(--color-white);
+}
+.titulo-input{
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 28px;
+  color: rgba(0,0,0,1);
+}
+
+.titulo-output{
+  padding: 20px 20px;
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 28px;
+  color: black;
+}
+.titulo-instrucciones{
+  font-family: Montserrat;
+  font-weight: Medium;
+  font-size: 20px;
+  color: rgba(0,0,0,1);
+  padding: 2px;
+}
+
+
+.section-title {
+  font-family: "Montserrat", serif;
+  font-size: 32px;
+  font-weight: 600;
+  color:antiquewhite;
+  margin: 10px 0;
+  text-align: center;
+}
+
+/* Contenedores de entrada y botón */
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  gap: 15px;
+  position: relative;
+  left: 10%;
+}
+
+.input-name {
+  background-color:rgb(233, 226, 245);
+  color: rgba(84,5,5,1);
+  opacity: 1;
+  width: 194px;
+  padding: 10px;
+  border: 0px solid black;
+  border-radius: 15px 15px 15px 15px;
+  font-size: 22px;
+  font-family: Montserrat;
+  font-weight: Bold;
+}
+
+.input-name:hover {
+  background-color:coral;
+}
+.button-container {
+  width: 194px;
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items:flex-start;
+  border-radius: 25px;
+}
+
+.button-container:hover{
+  background-color: coral;
+}
+
+/* Estilos de botón */
+button {
+  padding: 5px 5px;
+  font-family: "Inter", bold;
+  font-size: 18px;
+  height: 30px;
+  border: 2px solid #000;
+  border-radius: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+/* Botón de calcular */
+.button-draw {
+  display: flex;
+  align-items:center;
+  justify-content:space-between;
+  width: 194px;
+  padding: 10px 40px;
+  color: var(--color-white);
+  background-color: var(--color-button);
+  font-size: 16px;
+}
+
+/* Contenedores de resultados */
+.output-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content:right;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  gap: 15px;
+  position: relative;
+  left: 0%;
+}
+
+
+/*Mensajes de resultados*/
+.indice {
+  font-family: "Montserrat", bold;
+  font-size: 28px;
+  font-weight: 50;
+  color:rgb(26, 30, 48);
+ }
+  
+ .resultado {
+  font-family: "Montserrat", bold;
+  font-size: 36px;
+  font-weight: 65;
+  color:rgb(35, 67, 207);
+  align-items: center;
+ }
 
 @media (with <= 768px) {
 
