@@ -170,16 +170,35 @@
   color: rgba(0,0,0,1);
   position:relative;
   padding: 0px 0px 0px 0px;
-  top: - 10;
+  }
+
+.titulo-input-nivel{
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 28px;
+  color: rgba(0,0,0,1);
+  position:relative;
+
 }
 
 .titulo-output{
-  padding: 20px 20px;
+  padding: 5px 10px;
   font-family: Montserrat;
   font-weight: SemiBold;
   font-size: 28px;
   color: black;
+  align-self:center;
 }
+
+.titulo-output-mediciones{
+  padding: 0px 0px;
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 16px;
+  color: black;
+  position:relative;
+}
+
 .titulo-instrucciones{
   font-family: Montserrat;
   font-weight: Medium;
@@ -187,6 +206,7 @@
   color: rgba(0,0,0,1);
   padding: 2px;
 }
+
 
 
 .section-title {
@@ -329,6 +349,22 @@ button2:hover {
   font-weight: 65;
   color:rgb(35, 67, 207);
   align-items: center;
+ }
+
+ .resultado-mediciones{
+  font-family: "Montserrat", bold;
+  font-size: 20px;
+  font-weight: 50;
+  color:rgb(26, 30, 48);
+ }
+
+ .titulo-iluminacion-general{
+  font-family: "Montserrat", bold;
+  font-size: 20px;
+  font-weight: 48;
+  color:green;
+  align-items:flex-start;
+  padding: 0px 0px 0px 0px;
  }
 
 @media (with <= 768px) {

@@ -32,6 +32,9 @@ function borrarTabla() {
   document.getElementById("nroMediciones").textContent = "-";
   document.getElementById("emedio").textContent = "-";
   document.getElementById("minimo").textContent = "-";
+  document.getElementById("ilum-general").textContent = "";
+  document.getElementById("uniformidad").textContent = "";
+  document.querySelector('#nivel-iluminacion-requerido').value = '';
 }
 
 
@@ -64,7 +67,7 @@ function calcular() {
     } else {
       indiceLocalAdoptado = 4;
     }
-   // Nùmero de puntos mìnimos de medición
+   // Nùmero de puntos mínimos de medición
     numeroPuntos = (indiceLocalAdoptado + 2) * (indiceLocalAdoptado + 2);
     let parrafoIndice = document.getElementById('indice');
     let parrafoResultado = document.getElementById('resultado');
@@ -117,6 +120,30 @@ function limpiarCajasResultados(){
   document.getElementById("nroMediciones").textContent = nroMediciones;
   document.getElementById("emedio").textContent = emedio;
   document.getElementById("minimo").textContent = minimo;
+
+  // Si el númro de mediciones es menor a 1 interrumpe el cálculo y da error
+  if (nroMediciones<=0){
+    alert("Ingrese en la tabla los valores medidos");
+    return;
+  }
+
+  // Si la celda de iluminación requerido está vacía o se ingresó valores no numéricos, señala error
+  nivelIluminacionRequerido = parseFloat(document.getElementById('nivel-iluminacion-requerido').value);
+  if (isNaN(nivelIluminacionRequerido) || (nivelIluminacionRequerido<=0)) { 
+    alert("Debe ingresar un valor de iluminación requerido para chequear el cumplimiento de la legislación");
+    return;
+  }
+  if (emedio < nivelIluminacionRequerido) {
+    document.getElementById("ilum-general").textContent = "El nivel de iluminación general NO CUMPLE con la legislación vigente";
+  } else {
+    document.getElementById("ilum-general").textContent = "El nivel de iluminación general CUMPLE con la legislación vigente";
+  }
+
+  if (minimo < emedio/2) {
+    document.getElementById("uniformidad").textContent = "El nivel de uniformidad NO CUMPLE con la legislación vigente";
+  } else {
+    document.getElementById("uniformidad").textContent = "El nivel de uniformidad CUMPLE con la legislación vigente";
+  }
 }
 
 
@@ -127,4 +154,5 @@ let altura = 0;
 let numeroPuntos = 0;  // Esta variable almacena el valor de puntos minimos de medición
 let indiceLocal = 0;
 let indiceLocalAdoptado = 0;
+let nivelIluminacionRequerido = 0;
 
