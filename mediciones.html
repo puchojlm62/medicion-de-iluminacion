@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medición de Iluminación</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="main-content">
+        <header>
+            
+            <nav>
+                <img src="./img/logoISP65.png" class="logo"></img>
+                <h1>ILUMINACIÓN App</h1>
+                <ul class="nav__links" id="nav__links">
+                    <li><a href="index.html">Puntos de medición</a></li>
+                    <li><a href="mediciones.html">Mediciones</a></li>
+                    <li><a href="index.html">Localizada</a></li>
+                </ul>
+                <div class="hamburguesa" id="hamburguesa" >
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </header>
+        <h2 class="section-title">MEDICIONES</h2>
+        <section class="input-section">
+           <div class="input-wrapper">
+                <h3 class="titulo-input-mediciones">Puntos Medidos </h3>
+                <table id="tabla">
+                    <thead>
+                        <tr>
+ 
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Se generan 10 filas con 5 columnas -->
+
+                    </tbody>
+                </table>
+                <br>
+          
+                <div class="button-container">
+                    <button1 class="button-draw" onclick="borrarTabla()">Borrar Todo</button1>
+                   <button2 class="button-draw" onclick="leerTabla()">
+                         <img src="./img/play_circle_outline.png" alt="Ícono para calcular">Calcular 
+                    </button2>       
+                </div>
+           </div>
+           <div class="output-wrapper">
+ 
+                <h3 class="titulo-output">RESULTADOS </h3>
+                <p>Cantidad de mediciones realizadas: <span id="nroMediciones">-</span></p>
+                <p>Promedio (Emedio): <span id="emedio">-</span></p>
+                <p>Valor mínimo (Emínimo): <span id="minimo">-</span></p>
+           </div>
+        </section>
+        <footer>
+            
+        </footer>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
