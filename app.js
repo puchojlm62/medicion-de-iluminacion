@@ -133,15 +133,21 @@ function limpiarCajasResultados(){
     alert("Debe ingresar un valor de iluminación requerido para chequear el cumplimiento de la legislación");
     return;
   }
+  parrafo = document.getElementById("ilum-general");
   if (emedio < nivelIluminacionRequerido) {
+    parrafo.style.color = "red"; // Se vuelve rojo si la iluminación promedio es menor al requerido
     document.getElementById("ilum-general").textContent = "El nivel de iluminación general NO CUMPLE con la legislación vigente";
   } else {
+    parrafo.style.color = "green"; // Se vuelve rojo si la iluminación promedio es menor al requerido
     document.getElementById("ilum-general").textContent = "El nivel de iluminación general CUMPLE con la legislación vigente";
   }
 
+  parrafo = document.getElementById("uniformidad");
   if (minimo < emedio/2) {
+    parrafo.style.color = "red"; // Se vuelve rojo si no cumple con la uniformidad
     document.getElementById("uniformidad").textContent = "El nivel de uniformidad NO CUMPLE con la legislación vigente";
   } else {
+    parrafo.style.color = "green"; // Se vuelve verde si cumple con la uniformidad
     document.getElementById("uniformidad").textContent = "El nivel de uniformidad CUMPLE con la legislación vigente";
   }
 }
@@ -155,4 +161,4 @@ let numeroPuntos = 0;  // Esta variable almacena el valor de puntos minimos de m
 let indiceLocal = 0;
 let indiceLocalAdoptado = 0;
 let nivelIluminacionRequerido = 0;
-
+let parrafo ="";

@@ -237,10 +237,10 @@
   color: rgba(84,5,5,1);
   opacity: 1;
   width: 194px;
-  padding: 10px;
+  padding: 5px;
   border: 0px solid black;
   border-radius: 15px 15px 15px 15px;
-  font-size: 22px;
+  font-size: 20px;
   font-family: Montserrat;
   font-weight: Bold;
 }
@@ -367,7 +367,10 @@ button2:hover {
   padding: 0px 0px 0px 0px;
  }
 
-@media (with <= 768px) {
+ 
+
+
+ @media (max-width: 768px) {
 
   nav{
         justify-content: space-between;
@@ -392,4 +395,21 @@ button2:hover {
         display: flex;
         background-color: #232323;
     }
-}
+    .input-section {
+      flex-direction: column-reverse;
+    }
+    .titulo-input-mediciones {
+      font-size: 16px;
+    }
+    .titulo-input-nivel{
+      font-size: 18px;
+   
+    }
+
+    .button-container {
+      justify-content:right;
+      align-items:normal;
+   
+    }
+    
+ }
