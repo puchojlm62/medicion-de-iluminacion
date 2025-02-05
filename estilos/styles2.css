@@ -70,8 +70,81 @@ footer {
     padding: 1%;
     font-size: 1rem;
     width: 100%;
-
 }
+/* estilo iconos en footer */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 0.94rem;
+  margin-top: 0.625rempx;
+}
+
+.social-icons img {
+  width: 1.2rem;
+  height: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+
+/* Estilos para el modal */
+    /* Fondo oscuro cuando el modal está activo */
+    .modal {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  }
+
+  /* Contenedor del modal */
+  .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 1.25rem;
+      width: 50%;
+      border-radius: 0.625rempx;
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+      text-align: center;
+      font-size: 1rem;
+  }
+
+  /* Botón de cierre (la "X") */
+  .close {
+      color: #aaa;
+      float: right;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+  }
+
+  .close:hover {
+      color: red;
+  }
+
+  /* Estilo para el enlace de "Acerca de" */
+  footer a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s;
+    }
+
+    footer a:hover {
+        color: coral;
+    }
+  .text__modal{
+    font-family: Montserrat, sans-serif;
+    font-size: 1rem;
+    padding: 0.25rem;
+  }
+    
 
 /* Menú de navegación */
 nav {
@@ -280,7 +353,7 @@ button2:hover {
 .titulo-input-nivel{
   font-family: Montserrat;
   font-weight: SemiBold;
-  font-size: 28px;
+  font-size: 1.5rem;
   color: rgba(0,0,0,1);
   position:relative;
 }
@@ -288,19 +361,22 @@ button2:hover {
   background-color:rgb(233, 226, 245);
   color: rgba(84,5,5,1);
   opacity: 1;
-  width: 194px;
-  padding: 5px;
+  width: 12.125rem;
+  padding: 0.3125rem;
   border: 0px solid black;
-  border-radius: 15px 15px 15px 15px;
-  font-size: 20px;
+  border-radius: 0.9375rem;
+  font-size: 1.25rem;
   font-family: Montserrat;
   font-weight: Bold;
 }
+.input-name:hover {
+  background-color:coral;
+}
 .titulo-output{
-  padding: 5px 10px;
+  padding: 0.3125rem 0.625rem;
   font-family: Montserrat;
   font-weight: SemiBold;
-  font-size: 28px;
+  font-size: 1.75rem;
   color: black;
   align-self:center;
 }
@@ -308,13 +384,13 @@ button2:hover {
   padding: 0px 0px;
   font-family: Montserrat;
   font-weight: SemiBold;
-  font-size: 16px;
+  font-size: 1rem;
   color: black;
   position:relative;
 }
 .titulo-iluminacion-general{
   font-family: "Montserrat", bold;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 48;
   color:green;
   align-items:flex-start;
