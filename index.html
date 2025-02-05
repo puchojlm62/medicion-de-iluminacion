@@ -4,54 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medición de Iluminación</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./estilos/styles1.css">
+    <script defer src="script.js"></script>  
 </head>
 <body>
-    <main class="main-content">
-        <header>          
-            <nav>
-                <img src="./img/logoISP65.png" class="logo"></img>
-                <h1>ILUMINACIÓN App</h1>
-                <ul class="nav__links" id="nav__links">
-                    <li><a href="index.html">Puntos de medición</a></li>
-                    <li><a href="mediciones.html">Mediciones</a></li>
-                    <li><a href="index.html">Localizada</a></li>
-                </ul>
-                <div class="hamburguesa" id="hamburguesa" >
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-            </nav>
-        </header>
-        <h2 class="section-title">NÚMERO MÍNIMO DE PUNTOS DE MEDICIÓN</h2>
-        <section class="input-section">
-           <div class="input-wrapper">
-                <h3 class="titulo-input">Medidas del Local </h3>
-                <h4 class="titulo-instrucciones">Ingrese el largo del local en metros </h4>
-                <input type="text" id="largo" class="input-name" placeholder="Largo">
-                <h4 class="titulo-instrucciones">Ingrese el ancho del local en metros </h4>
-                <input type="text" id="ancho" class="input-name" placeholder="Ancho">
-                <h4 class="titulo-instrucciones">Ingrese la altura de las luminarias en metros </h4>
-                <input type="text" id="luminaria" class="input-name" placeholder="Altura luminarias">
-                <div class="button-container">
-                    <button class="button-draw" onclick="calcular()" >
-                        <img src="./img/play_circle_outline.png" alt="Ícono para calcular">CALCULAR
-                    </button>          
-                </div>
-           </div>
-           <div class="output-wrapper">
-                <img src="./img/puntosMuestreo.png" alt="Fórmula para obtener punto de muestreo">
-                <h3 class="titulo-output">RESULTADOS </h3>
-                <p1 class= "indice" id="indice">El índice del local es:</p1>
-                <p2 class= "resultado" id="resultado">Puntos mínimos de medición:</p2>
-           </div>
-        </section>
-        <footer>
-            
-        </footer>
+    
+    <!-- Encabezado con Menú -->
+    <header>
+        <img src="./img/logoISP65.png" class="logo"></img>
+        <h1>ILUMINACIÓN App</h1>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html" class="active">Puntos de medición</a></li>
+                <li><a href="mediciones.html">Mediciones</a></li>
+                <li><a href="index.html">Localizada</a></li>
+            </ul>
+            <div class="menu-hamburguesa" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenedor principal -->
+    <h2 class="section-title">NÚMERO MÍNIMO DE PUNTOS DE MEDICIÓN</h2>
+    <main class="contenedor-principal">
+        <!-- Contenedor izquierdo -->
+        <div class="contenedor__izquierda">
+            <h3 class="titulo-input">Medidas del Local </h3>
+            <h4 class="titulo-instrucciones">Ingrese el largo del local en metros </h4>
+            <input type="text" id="largo" class="input-name" placeholder="Largo">
+            <h4 class="titulo-instrucciones">Ingrese el ancho del local en metros </h4>
+            <input type="text" id="ancho" class="input-name" placeholder="Ancho">
+            <h4 class="titulo-instrucciones">Ingrese la altura de las luminarias en metros </h4>
+            <input type="text" id="luminaria" class="input-name" placeholder="Altura luminarias">    
+           <!--  <div class="button-container"></div> -->
+                <button class="button-draw" onclick="calcular()">
+                    <img src="./img/play_circle_outline.png" alt="Ícono para calcular">Calcular
+                </button>          
+         <!--    </div> -->
+
+            <!-- Sección 2 
+            <section class="seccion2">Sección 2</section> -->
+        </div>
+
+        <!-- Contenedor derecho -->
+        <div class="contenedor__derecha">
+            <img src="./img/puntosMuestreo.png" alt="Fórmula para obtener punto de muestreo">
+            <h3 class="titulo-output">RESULTADOS </h3>
+            <p1 class= "indice" id="indice">El índice del local es:</p1>
+            <p2 class= "resultado" id="resultado">Puntos mínimos de medición:</p2>
+            <!-- Sección 3 
+            <section class="seccion3">Sección 3</section>
+                Sección 4 
+            <section class="seccion4">Sección 4</section> -->
+        </div>
+
+        
     </main>
 
+    <!-- Pie de página -->
+    <footer>
+        <p>© 2025 Iluminación App Web</p>
+    </footer>
+
     <script src="app.js"></script>
+
 </body>
 </html>

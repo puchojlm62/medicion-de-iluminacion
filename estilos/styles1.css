@@ -1,0 +1,283 @@
+* /* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px; /* 1rem = 16px */
+}
+
+body {
+    font-family: Montserrat, sans-serif;
+    background-color: #333; /* Gris oscuro */
+}
+
+/* Asegurar que el body ocupe toda la altura de la pantalla */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* El main debe ocupar todo el espacio disponible */
+.contenedor-principal {
+    background-color: lightgray;
+    flex: 1; /* Hace que ocupe el espacio restante */
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 4rem 4rem 0 0;
+    border: 1px solid black;
+    width: 100%;
+    padding: 0rem;
+    gap: 0rem;
+}
+
+/* Header */
+header {
+    background-color: #87CEEB; /* Celeste */
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    height: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    height: 200%; /* La imagen tomará el 100% del header */
+    max-height: 200%; /* Asegura que no supere el header */
+    width: auto; /* Mantiene la proporción */
+  }
+
+/*Título de la aplicación*/
+h1{
+    font-family: Montserrat;
+    font-weight: SemiBold;
+    font-size: 2.1rem;
+}
+
+
+/* Footer fijo en la parte inferior */
+footer {
+    background-color: #333; /* Gris oscuro */
+    color: white;
+    text-align: center;
+    padding: 1.5%;
+    font-size: 1rem;
+    width: 100%;
+
+}
+
+/* Menú de navegación */
+nav {
+  position: relative;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu li {
+  display: inline;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+/* Cambio de color al pasar el cursor */
+.menu a:hover {
+  color: coral;
+}
+
+/* Cambio de color al hacer clic */
+.menu a.active {
+  color: coral;
+}
+
+/* Menú hamburguesa (oculto en pantallas grandes) */
+.menu-hamburguesa {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-hamburguesa div {
+    width: 30px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* --- TÍTULOS --- */
+
+.section-title {
+  font-family: "Montserrat", serif;
+  font-size: 1.75rem;
+  color:antiquewhite;
+  margin: 1rem 0px;
+  text-align: center;
+}
+
+/* Contenedor principal */
+/* Contenedores laterales */
+.contenedor__izquierda {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 6rem;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+.titulo-input{
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 1.75rem;
+  color: rgba(0,0,0,1);
+}
+.titulo-instrucciones{
+  font-family: Montserrat;
+  font-weight: Medium;
+  font-size: 1.25rem;
+  color: rgba(0,0,0,1);
+  padding: 2px;
+}
+.input-name {
+  background-color:rgb(233, 226, 245);
+  color: rgba(84,5,5,1);
+  opacity: 1;
+  width: 12.125rem;
+  padding: 0.3rem;
+  border: 0px solid black;
+  border-radius: 1rem 1rem 1rem 1rem;
+  font-size: 1.25rem;
+  font-family: Montserrat;
+  font-weight: Bold;
+}
+.input-name:hover {
+  background-color:coral;
+}
+
+/* Estilos de botón */
+button {
+  font-family: "Montserrat", bold;
+  border: 0.125rem solid #000;
+  border-radius: 1.6rem;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+.button-draw {
+  display: flex;
+  align-items:center;
+  justify-content:space-evenly;
+  width: 15.625rem;
+  color: var(--color-white);
+  background-color: var(--color-button);
+  font-size: 1.5rem;
+  height: fit-content;
+}
+button:hover {
+  background-color: coral;
+}
+/* FIN Contenedor izquierdo */
+
+.contenedor__derecha {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  margin-right: 6rem;
+  margin-top: 2rem;
+}
+.titulo-output{
+  padding: 0.2rem 0.4rem;
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 1.5rem;
+  color: black;
+  align-self:center;
+}
+.indice {
+  font-family: "Montserrat", bold;
+  font-size: 2rem;
+  font-weight: 3rem;
+  color:rgb(26, 30, 48);
+}
+.resultado {
+  font-family: "Montserrat", bold;
+  font-size: 2.25rem;
+  font-weight: 4rem;
+  color:rgb(35, 67, 207);
+  align-items: center;
+}
+
+/* FIN Contenedor derecha */
+
+
+
+
+ /* --- RESPONSIVIDAD --- */
+@media (max-width: 768px) {
+  /* Cambia a diseño de una sola columna */
+  .contenedor-principal {
+      flex-direction: column-reverse;
+      align-items: center;
+  }
+
+  .contenedor {
+      width: 90%;
+  }
+
+  /* Oculta el menú normal y muestra la hamburguesa */
+  .menu {
+      display: none;
+      flex-direction: column;
+      background-color: #87CEEB;
+      position: absolute;
+      right: 0;
+      top: 60px;
+      width: 150px;
+      padding: 1rem;
+      border-radius: 5px;
+  }
+
+  .menu a {
+      display: block;
+      padding: 0.5rem 0;
+  }
+
+  .menu-hamburguesa {
+      display: flex;
+  }
+
+  /* Muestra el menú cuando se activa */
+  .menu.activo {
+      display: flex;
+  }
+}
+ 
+ @media (max-width: 480px) {
+  header {
+      font-size: 1.5rem;
+  }
+
+  .seccion {
+      font-size: 1.2rem;
+      padding: 1.5rem;
+  }
+
+  footer {
+      font-size: 1rem;
+  }
+}

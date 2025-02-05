@@ -1,12 +1,3 @@
-const hamburger = document.querySelector("#hamburguesa");
-const enlaces= document.querySelector('#nav__links');
-
-
-
-hamburger.addEventListener('click',() => {
-    enlaces.classList.toggle('show')
-});
-
 //Con esta rutina se genera la tabla
 document.addEventListener("DOMContentLoaded", function() {
   let tbody = document.querySelector("#tabla tbody");
@@ -41,7 +32,7 @@ function borrarTabla() {
 
 //Esta función determina el numero de puntos mínimo a medir en la página index.html
 function calcular() {
-    
+     
     largo = parseFloat(document.getElementById('largo').value);
     if (isNaN(largo) || (largo<=0)){
       limpiarCajasResultados();
@@ -162,3 +153,5 @@ let indiceLocal = 0;
 let indiceLocalAdoptado = 0;
 let nivelIluminacionRequerido = 0;
 let parrafo ="";
+
+
