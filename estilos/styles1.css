@@ -48,9 +48,10 @@ header {
 }
 
 .logo{
-    height: 200%; /* La imagen tomará el 100% del header */
-    max-height: 200%; /* Asegura que no supere el header */
-    width: auto; /* Mantiene la proporción */
+    height: 5rem; /* La imagen tomará el 100% del header */
+    max-height: 5rem; /* Asegura que no supere el header */
+    width: auto;  /* Mantiene la proporción */
+    padding-top: 0.5rem;
   }
 
 /*Título de la aplicación*/
@@ -75,7 +76,7 @@ footer {
   display: flex;
   justify-content: center;
   gap: 0.94rem;
-  margin-top: 0.625rempx;
+  margin-top: 0.625rem;
 }
 
 .social-icons img {
