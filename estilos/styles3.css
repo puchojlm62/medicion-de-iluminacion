@@ -1,7 +1,9 @@
+* /* Estilos generales */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 html {
@@ -10,22 +12,21 @@ html {
 
 body {
     font-family: Montserrat, sans-serif;
-    background-color: #333; /* Gris oscuro */
+    background-color: var(--color-body); /* Gris oscuro */
 }
 
 /* Asegurar que el body ocupe toda la altura de la pantalla */
 html, body {
-    height: 100vh; /* Ocupa toda la pantalla */
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 
-
 /* Header */
 header {
-    background-color: #87CEEB; /* Celeste */
-    color: white;
+    background-color: var(--color-header-fondo);
+    color:var(--color-header-texto);
     text-align: center;
     padding: 1.5rem;
     font-size: 1.8rem;
@@ -33,7 +34,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Asegura que ocupen todo el ancho */
 }
 
 .logo{
@@ -53,8 +53,8 @@ h1{
 
 /* Footer fijo en la parte inferior */
 footer {
-    background-color: #333; /* Gris oscuro */
-    color: white;
+    background-color: var(--color-footer-fondo); /* Gris oscuro */
+    color: var(--color-footer-texto);
     text-align: center;
     padding: 1%;
     font-size: 1rem;
@@ -88,16 +88,16 @@ footer {
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+      background-color: var(--color-semitransparente)
   }
 
   /* Contenedor del modal */
   .modal-content {
-      background-color: white;
+      background-color: var(--color-modal-activo);
       margin: 15% auto;
       padding: 1.25rem;
       width: 50%;
-      border-radius: 0.625rempx;
+      border-radius: 0.625rem;
       box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
       text-align: center;
       font-size: 1rem;
@@ -105,7 +105,7 @@ footer {
 
   /* Botón de cierre (la "X") */
   .close {
-      color: #aaa;
+      color: var(--color-secundario);
       float: right;
       font-size: 1.5rem;
       font-weight: bold;
@@ -113,19 +113,19 @@ footer {
   }
 
   .close:hover {
-      color: red;
+      color: var(--color-resaltado);
   }
 
   /* Estilo para el enlace de "Acerca de" */
   footer a {
-        color: white;
+        color: var(--color-footer-texto);
         text-decoration: none;
         font-weight: bold;
         transition: color 0.3s;
     }
 
     footer a:hover {
-        color: coral;
+        color: var(--color-resaltado);
     }
   .text__modal{
     font-family: Montserrat, sans-serif;
@@ -136,6 +136,7 @@ footer {
 /* Menú de navegación */
 nav {
   position: relative;
+  z-index: 2; /* El menú estará por encima de la imagen */
 }
 
 .menu {
@@ -150,19 +151,19 @@ nav {
 
 .menu a {
   text-decoration: none;
-  color: white;
+  color: var(--color-header-texto);
   font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
 /* Cambio de color al pasar el cursor */
 .menu a:hover {
-  color: coral;
+  color: var(--color-resaltado);
 }
 
 /* Cambio de color al hacer clic */
 .menu a.active {
-  color: coral;
+  color: var(--color-resaltado);
 }
 
 /* Menú hamburguesa (oculto en pantallas grandes) */
@@ -176,7 +177,7 @@ nav {
 .menu-hamburguesa div {
     width: 30px;
     height: 4px;
-    background-color: white;
+    background-color: var(--color-header-texto);
     border-radius: 2px;
 }
 
@@ -185,7 +186,7 @@ nav {
 .section-title {
   font-family: "Montserrat", serif;
   font-size: 1.75rem;
-  color:antiquewhite;
+  color:var(--color-titulo-principal);
   margin: 1rem 0px;
   text-align: center;
 }
@@ -193,16 +194,15 @@ nav {
 /* Contenedor principal */
 /* El main debe ocupar todo el espacio disponible */
 .contenedor-principal {
-  background-color: lightgray;
+  background-color: var(--color-secundario);
   flex: 1; /* Hace que ocupe el espacio restante */
   display: flex;
   justify-content: space-evenly;
   border-radius: 4rem 4rem 0 0;
-  border: 0px solid black;
+  border: 1px solid var(--color-borde);
   width: 100%;
   padding: 0rem;
-  margin: 0rem;
-  
+  gap: 0rem;
 }
 
 /* Contenedores laterales */
@@ -319,7 +319,7 @@ nav {
   .menu {
       display: none;
       flex-direction: column;
-      background-color: #87CEEB;
+      background-color: --color-header-fondo;
       position: absolute;
       right: 0;
       top: 60px;

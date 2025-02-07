@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 html {
@@ -11,7 +12,7 @@ html {
 
 body {
     font-family: Montserrat, sans-serif;
-    background-color: #333; /* Gris oscuro */
+    background-color: var(--color-body); /* Gris oscuro */
 }
 
 /* Asegurar que el body ocupe toda la altura de la pantalla */
@@ -21,24 +22,11 @@ html, body {
     flex-direction: column;
 }
 
-/* El main debe ocupar todo el espacio disponible */
-.contenedor-principal {
-  background-color: lightgray;
-  flex: 1; /* Hace que ocupe el espacio restante */
-  display: flex;
-  justify-content: space-evenly;
-  border-radius: 4rem 4rem 0 0;
-  border: 1px solid black;
-  width: 100%;
-  padding: 0rem;
-  gap: 0rem;
-}
-
 
 /* Header */
 header {
-    background-color: #87CEEB; /* Celeste */
-    color: white;
+    background-color: var(--color-header-fondo);
+    color:var(--color-header-texto);
     text-align: center;
     padding: 1.5rem;
     font-size: 1.8rem;
@@ -65,8 +53,8 @@ h1{
 
 /* Footer fijo en la parte inferior */
 footer {
-    background-color: #333; /* Gris oscuro */
-    color: white;
+    background-color: var(--color-footer-fondo); /* Gris oscuro */
+    color: var(--color-footer-texto);
     text-align: center;
     padding: 1%;
     font-size: 1rem;
@@ -90,7 +78,6 @@ footer {
   transform: scale(1.2);
 }
 
-
 /* Estilos para el modal */
     /* Fondo oscuro cuando el modal está activo */
     .modal {
@@ -101,16 +88,16 @@ footer {
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+      background-color: var(--color-semitransparente)
   }
 
   /* Contenedor del modal */
   .modal-content {
-      background-color: white;
+      background-color: var(--color-modal-activo);
       margin: 15% auto;
       padding: 1.25rem;
       width: 50%;
-      border-radius: 0.625rempx;
+      border-radius: 0.625rem;
       box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
       text-align: center;
       font-size: 1rem;
@@ -118,7 +105,7 @@ footer {
 
   /* Botón de cierre (la "X") */
   .close {
-      color: #aaa;
+      color: var(--color-secundario);
       float: right;
       font-size: 1.5rem;
       font-weight: bold;
@@ -126,30 +113,30 @@ footer {
   }
 
   .close:hover {
-      color: red;
+      color: var(--color-resaltado);
   }
 
   /* Estilo para el enlace de "Acerca de" */
   footer a {
-        color: white;
+        color: var(--color-footer-texto);
         text-decoration: none;
         font-weight: bold;
         transition: color 0.3s;
     }
 
     footer a:hover {
-        color: coral;
+        color: var(--color-resaltado);
     }
   .text__modal{
     font-family: Montserrat, sans-serif;
     font-size: 1rem;
     padding: 0.25rem;
   }
-    
 
 /* Menú de navegación */
 nav {
   position: relative;
+  z-index: 2; /* El menú estará por encima de la imagen */
 }
 
 .menu {
@@ -164,19 +151,19 @@ nav {
 
 .menu a {
   text-decoration: none;
-  color: white;
+  color: var(--color-header-texto);
   font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
 /* Cambio de color al pasar el cursor */
 .menu a:hover {
-  color: coral;
+  color: var(--color-resaltado);
 }
 
 /* Cambio de color al hacer clic */
 .menu a.active {
-  color: coral;
+  color: var(--color-resaltado);
 }
 
 /* Menú hamburguesa (oculto en pantallas grandes) */
@@ -190,8 +177,18 @@ nav {
 .menu-hamburguesa div {
     width: 30px;
     height: 4px;
-    background-color: white;
+    background-color: var(--color-header-texto);
     border-radius: 2px;
+}
+
+/* --- TÍTULOS --- */
+
+.section-title {          /*principal*/
+  font-family: "Montserrat", serif;
+  font-size: 1.75rem;
+  color:var(--color-titulo-principal);
+  margin: 1rem 0px;
+  text-align: center;
 }
 
 /* --- TABLAS --- */
@@ -200,20 +197,18 @@ table {
   align-self: start;
   margin: 0;
   border-collapse: collapse;
-  background-color: darkolivegreen;
   padding: 0px 0ox 0px 0px;
   }
 
   th, td {
-  border: 1px solid black;
+  border: 1px solid var(--color-borde);
   padding: 5px;
   text-align: center;
   width: 40px;
   text-align: center;
-  background-color: lightblue;
+  background-color: var(--color-input-fondo);
   cursor: pointer;
-  background-color:rgb(233, 226, 245);
-  color: rgba(84,5,5,1);
+  color: var(--color-input);
   opacity: 1;
   border-radius: 2px 2px 2px 2px;
   font-size: 18px;
@@ -223,32 +218,25 @@ table {
 
   tr{
     width: 100%;
-    background-color: brown;
+    /*background-color: brown;*/
     padding: 0%;
   }
 
   thead {
-    background-color: blueviolet;
+   /* background-color: blueviolet;*/
   }
 
 /* --- TÍTULOS --- */
 
-.section-title {
-  font-family: "Montserrat", serif;
-  font-size: 1.75rem;
-  color:antiquewhite;
-  margin: 1rem 0px;
-  text-align: center;
-}
 
 /* Contenedor principal */
 .contenedor-principal {
-  background-color: lightgray;
+  background-color: var(--color-secundario);
   flex: 1; /* Hace que ocupe el espacio restante */
   display: flex;
   justify-content: space-evenly;
   border-radius: 4rem 4rem 0 0;
-  border: 1px solid black;
+  border: 1px solid var(--color-borde);
   width: 100%;
   padding: 0rem;
   gap: 0rem;
@@ -267,7 +255,7 @@ table {
   font-family: Montserrat;
   font-weight: SemiBold;
   font-size: 1.75rem;
-  color: rgba(0,0,0,1);
+  color: var(--color-texto);
   position:relative;
   padding: 0px 0px 0px 0px;
 }
@@ -290,16 +278,16 @@ table {
   justify-content:space-around;
   width: 50%;
   height: 15%;
-  border: 0px solid black;
-  background-color: lightgray;
+  border: 0px solid var(--color-borde);
+  background-color: var(--color-secundario);
   position: relative;
   top: -0.5rem;
 }
  button {
   font-family: "Montserrat", bold;
-  border: 0.125rem solid #000;
+  border: 0.125rem solid var(--color-borde);
   border-radius: 1.6rem;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.25rem 0.5rem var(--color-borde);
   cursor: pointer;
   align-items: center;
 
@@ -308,7 +296,7 @@ table {
   display: flex;
   align-items:center;
   justify-content:center;
-  background-color: lightgray;
+  background-color: var(--color-secundario);
   width: 8rem;
   font-size: 1rem;
   height: 1.875rem;
@@ -316,7 +304,7 @@ table {
 }
 
 button:hover {
-  background-color: coral;
+  background-color: var(--color-resaltado);
 }
 
 
@@ -334,16 +322,16 @@ button:hover {
   font-family: Montserrat;
   font-weight: SemiBold;
   font-size: 1.5rem;
-  color: rgba(0,0,0,1);
+  color: var(--color-texto);
   position:relative;
 }
 .input-name {
-  background-color:rgb(233, 226, 245);
-  color: rgba(84,5,5,1);
+  background-color:var(--color-input-fondo);
+  color: var(--color-input);
   opacity: 1;
   width: 12.125rem;
   padding: 0.3125rem;
-  border: 0px solid black;
+  border: 0px solid var(--color-borde);
   border-radius: 0.9375rem;
   font-size: 1.25rem;
   font-family: Montserrat;
@@ -351,14 +339,14 @@ button:hover {
   text-align: center;
 }
 .input-name:hover {
-  background-color:coral;
+  background-color:var(--color-resaltado);
 }
 .titulo-output{
   padding: 0.3125rem 0.625rem;
   font-family: Montserrat;
   font-weight: SemiBold;
   font-size: 1.75rem;
-  color: black;
+  color: var(--color-texto);
   align-self:center;
 }
 .titulo-output-mediciones{
@@ -366,14 +354,14 @@ button:hover {
   font-family: Montserrat;
   font-weight: SemiBold;
   font-size: 1rem;
-  color: black;
+  color: var(--color-texto);
   position:relative;
 }
 .titulo-iluminacion-general{
   font-family: "Montserrat", bold;
   font-size: 1.25rem;
   font-weight: 48;
-  color:green;
+  color:var(--color-cumple);
   align-items:flex-start;
   padding: 0px 0px 0px 0px;
  }
@@ -392,7 +380,7 @@ button:hover {
   }
 
   .section-title {
-    color: white;
+    color: var(--color-titulo-principal);
     opacity: 100;
   }
   .contenedor__izquierda {
@@ -405,7 +393,7 @@ button:hover {
   .menu {
       display: none;
       flex-direction: column;
-      background-color: #87CEEB;
+      background-color: var(--color-header-fondo);
       position: absolute;
       right: 0;
       top: 60px;

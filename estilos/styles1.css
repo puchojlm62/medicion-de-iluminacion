@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 html {
@@ -11,7 +12,7 @@ html {
 
 body {
     font-family: Montserrat, sans-serif;
-    background-color: #333; /* Gris oscuro */
+    background-color: var(--color-body); /* Gris oscuro */
 }
 
 /* Asegurar que el body ocupe toda la altura de la pantalla */
@@ -21,23 +22,11 @@ html, body {
     flex-direction: column;
 }
 
-/* El main debe ocupar todo el espacio disponible */
-.contenedor-principal {
-    background-color: lightgray;
-    flex: 1; /* Hace que ocupe el espacio restante */
-    display: flex;
-    justify-content: space-evenly;
-    border-radius: 4rem 4rem 0 0;
-    border: 1px solid black;
-    width: 100%;
-    padding: 0rem;
-    gap: 0rem;
-}
 
 /* Header */
 header {
-    background-color: #87CEEB; /* Celeste */
-    color: white;
+    background-color: var(--color-header-fondo);
+    color:var(--color-header-texto);
     text-align: center;
     padding: 1.5rem;
     font-size: 1.8rem;
@@ -64,8 +53,8 @@ h1{
 
 /* Footer fijo en la parte inferior */
 footer {
-    background-color: #333; /* Gris oscuro */
-    color: white;
+    background-color: var(--color-footer-fondo); /* Gris oscuro */
+    color: var(--color-footer-texto);
     text-align: center;
     padding: 1%;
     font-size: 1rem;
@@ -99,16 +88,16 @@ footer {
       top: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+      background-color: var(--color-semitransparente)
   }
 
   /* Contenedor del modal */
   .modal-content {
-      background-color: white;
+      background-color: var(--color-modal-activo);
       margin: 15% auto;
       padding: 1.25rem;
       width: 50%;
-      border-radius: 0.625rempx;
+      border-radius: 0.625rem;
       box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
       text-align: center;
       font-size: 1rem;
@@ -116,7 +105,7 @@ footer {
 
   /* Botón de cierre (la "X") */
   .close {
-      color: #aaa;
+      color: var(--color-secundario);
       float: right;
       font-size: 1.5rem;
       font-weight: bold;
@@ -124,19 +113,19 @@ footer {
   }
 
   .close:hover {
-      color: red;
+      color: var(--color-resaltado);
   }
 
   /* Estilo para el enlace de "Acerca de" */
   footer a {
-        color: white;
+        color: var(--color-footer-texto);
         text-decoration: none;
         font-weight: bold;
         transition: color 0.3s;
     }
 
     footer a:hover {
-        color: coral;
+        color: var(--color-resaltado);
     }
   .text__modal{
     font-family: Montserrat, sans-serif;
@@ -162,19 +151,19 @@ nav {
 
 .menu a {
   text-decoration: none;
-  color: white;
+  color: var(--color-header-texto);
   font-size: 1.2rem;
   transition: color 0.3s ease;
 }
 
 /* Cambio de color al pasar el cursor */
 .menu a:hover {
-  color: coral;
+  color: var(--color-resaltado);
 }
 
 /* Cambio de color al hacer clic */
 .menu a.active {
-  color: coral;
+  color: var(--color-resaltado);
 }
 
 /* Menú hamburguesa (oculto en pantallas grandes) */
@@ -188,7 +177,7 @@ nav {
 .menu-hamburguesa div {
     width: 30px;
     height: 4px;
-    background-color: white;
+    background-color: var(--color-header-texto);
     border-radius: 2px;
 }
 
@@ -197,12 +186,24 @@ nav {
 .section-title {
   font-family: "Montserrat", serif;
   font-size: 1.75rem;
-  color:antiquewhite;
+  color:var(--color-titulo-principal);
   margin: 1rem 0px;
   text-align: center;
 }
 
 /* Contenedor principal */
+/* El main debe ocupar todo el espacio disponible */
+.contenedor-principal {
+  background-color: var(--color-secundario);
+  flex: 1; /* Hace que ocupe el espacio restante */
+  display: flex;
+  justify-content: space-evenly;
+  border-radius: 4rem 4rem 0 0;
+  border: 1px solid var(--color-borde);
+  width: 100%;
+  padding: 0rem;
+  gap: 0rem;
+}
 /* Contenedores laterales */
 .contenedor__izquierda {
   width: 48%;
@@ -216,22 +217,22 @@ nav {
   font-family: Montserrat;
   font-weight: SemiBold;
   font-size: 1.75rem;
-  color: rgba(0,0,0,1);
+  color: var(--color-texto);
 }
 .titulo-instrucciones{
   font-family: Montserrat;
   font-weight: Medium;
   font-size: 1.25rem;
-  color: rgba(0,0,0,1);
+  color: var(--color-texto);
   padding: 2px;
 }
 .input-name {
-  background-color:rgb(233, 226, 245);
-  color: rgba(84,5,5,1);
+  background-color:var(--color-input-fondo);/*rgb(233, 226, 245);*/
+  color: var(--color-input); /*color de entrada de texto*/
   opacity: 1;
   width: 12.125rem;
   padding: 0.3rem;
-  border: 0px solid black;
+  border: 0px solid var(--color-borde);
   border-radius: 1rem 1rem 1rem 1rem;
   font-size: 1.25rem;
   font-family: Montserrat;
@@ -239,7 +240,7 @@ nav {
  text-align: center;
 }
 .input-name:hover {
-  background-color:coral;
+  background-color:var(--color-resaltado);
 }
 .seccion2{
   display: flex;
@@ -247,14 +248,14 @@ nav {
   justify-content:space-around;
   height: 10%;
   width: 50%;
-  border: 0px solid black;
-  background-color: lightgray;
+  border: 0px solid var(--color-borde);
+  background-color: var(--color-secundario);
 }
  button {
   font-family: "Montserrat", bold;
-  border: 0.125rem solid #000;
+  border: 0.125rem var(--color-borde);
   border-radius: 1.6rem;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.25rem 0.5rem var(--color-borde);
   cursor: pointer;
   align-items: center;
 
@@ -263,7 +264,7 @@ nav {
   display: flex;
   align-items:center;
   justify-content:center;
-  background-color: lightgray;
+  background-color: var(--color-secundario);
   width: 8rem;
   font-size: 1rem;
   height: 1.875rem;
@@ -271,7 +272,7 @@ nav {
 }
 
 button:hover {
-  background-color: coral;
+  background-color: var(--color-resaltado);
 }
 /* FIN Contenedor izquierdo */
 
@@ -295,20 +296,20 @@ button:hover {
   font-family: Montserrat;
   font-weight: SemiBold;
   font-size: 1.5rem;
-  color: black;
+  color: var(--color-texto);
   align-self:center;
 }
 .indice {
   font-family: "Montserrat", bold;
   font-size: 2rem;
   font-weight: 3rem;
-  color:rgb(26, 30, 48);
+  color:var(--color-texto)/*rgb(26, 30, 48);*/
 }
 .resultado {
   font-family: "Montserrat", bold;
   font-size: 2.25rem;
   font-weight: 4rem;
-  color:rgb(35, 67, 207);
+  color:var(--color-resultado);
   align-items: center;
 }
 
@@ -332,7 +333,7 @@ button:hover {
   }
 
   .section-title {
-    color: white;
+    color: var(--color-titulo-principal);
     opacity: 100;
   }
   .contenedor__izquierda {
@@ -344,16 +345,15 @@ button:hover {
   .imagen{
  
     height: auto; /* La imagen tomará el 100% del header */
-    /* max-height: 200%; /* Asegura que no supere el header */
-     width: 300px;  /* Mantiene la proporción */
-   /*  padding-top: 0.5rem;*/
+    width: 17.5rem;  /* Mantiene la proporción */
+   
   }
 
   /* Oculta el menú normal y muestra la hamburguesa */
   .menu {
       display: none;
       flex-direction: column;
-      background-color: #87CEEB;
+      background-color: var(--color-header-fondo);
       position: absolute;
       right: 0;
       top: 60px;
