@@ -28,7 +28,13 @@ function borrarTabla() {
   document.querySelector('#nivel-iluminacion-requerido').value = '';
 }
 
-
+//Esta funciòn borra las caja y resultados de index.htlm
+function borrarTodo() {
+  document.querySelector('#largo').value = ''
+  document.querySelector('#ancho').value = ''
+  document.querySelector('#luminaria').value = ''
+  limpiarCajasResultados();
+}
 
 //Esta función determina el numero de puntos mínimo a medir en la página index.html
 function calcular() {
@@ -53,6 +59,7 @@ function calcular() {
     }
      //Calcula el valor índice local
     indiceLocal = ancho * largo / (altura * (ancho + largo));
+    console.log(indiceLocal);
     if (indiceLocal <= 3) {
       indiceLocalAdoptado = Math.trunc(indiceLocal) + 1;
     } else {
@@ -120,6 +127,7 @@ function limpiarCajasResultados(){
 
   // Si la celda de iluminación requerido está vacía o se ingresó valores no numéricos, señala error
   nivelIluminacionRequerido = parseFloat(document.getElementById('nivel-iluminacion-requerido').value);
+  console.log(nivelIluminacionRequerido);
   if (isNaN(nivelIluminacionRequerido) || (nivelIluminacionRequerido<=0)) { 
     alert("Debe ingresar un valor de iluminación requerido para chequear el cumplimiento de la legislación");
     return;

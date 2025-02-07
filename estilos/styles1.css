@@ -147,6 +147,7 @@ footer {
 /* Menú de navegación */
 nav {
   position: relative;
+  z-index: 2; /* El menú estará por encima de la imagen */
 }
 
 .menu {
@@ -235,34 +236,46 @@ nav {
   font-size: 1.25rem;
   font-family: Montserrat;
   font-weight: Bold;
+ text-align: center;
 }
 .input-name:hover {
   background-color:coral;
 }
-
-/* Estilos de botón */
-button {
+.seccion2{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  height: 10%;
+  width: 50%;
+  border: 0px solid black;
+  background-color: lightgray;
+}
+ button {
   font-family: "Montserrat", bold;
   border: 0.125rem solid #000;
   border-radius: 1.6rem;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  align-items: center;
+
 }
 .button-draw {
   display: flex;
   align-items:center;
-  justify-content:space-evenly;
-  width: 15.625rem;
-  color: var(--color-white);
-  background-color: var(--color-button);
-  font-size: 1.5rem;
-  height: fit-content;
+  justify-content:center;
+  background-color: lightgray;
+  width: 8rem;
+  font-size: 1rem;
+  height: 1.875rem;
+  margin-top: 0.2rem;
 }
+
 button:hover {
   background-color: coral;
 }
 /* FIN Contenedor izquierdo */
 
+/*Comienzo contenedor derecho*/
 .contenedor__derecha {
   width: 45%;
   display: flex;
@@ -271,6 +284,11 @@ button:hover {
   position: relative;
   margin-right: 6rem;
   margin-top: 2rem;
+}
+.imagen{
+  width: auto;  /* Mantiene la proporción */
+  padding-top: 0.5rem;
+  z-index: 1; /* La imagen estará por debajo del menú */
 }
 .titulo-output{
   padding: 0.2rem 0.4rem;
@@ -301,14 +319,34 @@ button:hover {
 
  /* --- RESPONSIVIDAD --- */
 @media (max-width: 768px) {
+
+ 
   /* Cambia a diseño de una sola columna */
-  .contenedor-principal {
+
+    .contenedor-principal {
+      width: 100%;
       flex-direction: column-reverse;
       align-items: center;
+      margin-left: 0px;
+
   }
 
-  .contenedor {
-      width: 90%;
+  .section-title {
+    color: white;
+    opacity: 100;
+  }
+  .contenedor__izquierda {
+      width: 100%;
+      padding: 0%;
+ 
+  }
+
+  .imagen{
+ 
+    height: auto; /* La imagen tomará el 100% del header */
+    /* max-height: 200%; /* Asegura que no supere el header */
+     width: 300px;  /* Mantiene la proporción */
+   /*  padding-top: 0.5rem;*/
   }
 
   /* Oculta el menú normal y muestra la hamburguesa */
@@ -339,17 +377,3 @@ button:hover {
   }
 }
  
- @media (max-width: 480px) {
-  header {
-      font-size: 1.5rem;
-  }
-
-  .seccion {
-      font-size: 1.2rem;
-      padding: 1.5rem;
-  }
-
-  footer {
-      font-size: 1rem;
-  }
-}

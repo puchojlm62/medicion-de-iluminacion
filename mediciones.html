@@ -43,17 +43,16 @@
                     </tbody>
                 </table>
                 <br>
-          
-                <div class="button-container">
-                    <button1 class="button-draw" onclick="borrarTabla()">Borrar Todo</button1>
-                   <button2 class="button-draw" onclick="leerTabla()">
-                         <img src="./img/play_circle_outline.png" alt="Ícono para calcular">Calcular 
-                    </button2>       
-                </div>
+                <section class="seccion2">
+                    <button class="button-draw" onclick="leerTabla()">
+                        <img src="./img/play_circle_outline.png" alt="Ícono para calcular">Calcular
+                    </button>
+                    <button class="button-draw" onclick="borrarTabla()">Borrar Todo</button>       
+                </section>
            </div>
            <div class="contenedor__derecha">
                 <p class="titulo-input-nivel">Introduce el nivel de iluminación requerido acorde a la legislación vigente</p>
-                <input type="text" id="nivel-iluminacion-requerido" class="input-name" placeholder="nivel de iluminacion">
+                <input type="text"  id="nivel-iluminacion-requerido" class="input-name" oninput="validarNumeroReal(this)" placeholder="nivel de iluminacion">
                 <h3 class="titulo-output">RESULTADOS </h3>
                 <p class="titulo-output-mediciones">Cantidad de mediciones realizadas: <span class= "resultado-mediciones" id="nroMediciones">-</span></p>
                 <p class="titulo-output-mediciones">Promedio (Emedio) en lux: <span class= "resultado-mediciones" id="emedio">-</span></p>
