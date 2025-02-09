@@ -50,7 +50,6 @@ h1{
     font-size: 2.1rem;
 }
 
-
 /* Footer fijo en la parte inferior */
 footer {
     background-color: var(--color-footer-fondo); /* Gris oscuro */
@@ -191,6 +190,30 @@ nav {
   text-align: center;
 }
 
+/*  Tabla   */
+table {
+  width: 80%;
+  border-collapse: collapse;
+  table-layout: fixed; /* Importante para controlar el ancho */
+  align-self: center;
+  padding-top: 3rem;
+  position: relative;
+}
+
+th, td {
+  border: 1px solid var(--color-borde);
+  padding: 0.3rem;
+  width: 1.56rem;
+  text-align: center;
+  overflow: hidden; /* Maneja el desbordamiento de texto */
+  background-color: var(--color-input-fondo);
+  color: var(--color-input);
+  opacity: 1;
+  border-radius: 2px 2px 2px 2px;
+  font-size: 1.125rem;
+  font-family: Montserrat;
+  font-weight: Bold;
+  }
 /* Contenedor principal */
 /* El main debe ocupar todo el espacio disponible */
 .contenedor-principal {
@@ -199,146 +222,240 @@ nav {
   display: flex;
   justify-content: space-evenly;
   border-radius: 4rem 4rem 0 0;
-  border: 1px solid var(--color-borde);
+  border: 0px solid var(--color-borde);
   width: 100%;
   padding: 0rem;
   gap: 0rem;
+}
+.contenedor-principal::after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* Contenedores laterales */
 .contenedor__izquierda {
   width: 40%;
   background-color: lightgray;
-  border: 0px solid black;
+  border: 0px solid var(--color-borde);
   display: flex;
   flex-direction: column;
-  justify-content:space-evenly;
-  margin-left: 10rem;
+  justify-content:center;
+  margin-left: 5rem;
   margin-top: 1rem;
  }
  .seccion1{
   display: flex;
   flex-direction: column;
   justify-content:center;
-  height: 75%;
-  border: 1px solid black;
-  background-color: lightgray;
+  height: 80%;
+  border: 0px solid var(--color-borde);
+  background-color: var(--color-secundario);
+  padding: 0%;
  
  }
+  .titulo-tabla{
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 1.75rem;
+  color: var(--color-texto);
+  align-self: center;
+  padding-bottom: 0rem;
  
+}
+.input-name {
+  background-color:var(--color-input-fondo);
+  color: var(--color-input);
+  opacity: 1;
+  width: 12.125rem;
+  padding: 0.3125rem;
+  border: 0px solid var(--color-borde);
+  border-radius: 0.9375rem;
+  font-size: 1.25rem;
+  font-family: Montserrat;
+  font-weight: Bold;
+  text-align: center;
+}
+.input-name:hover {
+  background-color:var(--color-resaltado);
+}
+.gral__localiza {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+}
 
- .seccion2{
+/* comienzo de la sección2*/
+.seccion2{
   display: flex;
   flex-direction: row;
   justify-content:space-around;
+  align-self: center;
+  width: 60%;
   height: 10%;
-  width: 50%;
-  border: 1px solid black;
-  background-color: lightgray;
+  border: 0px solid var(--color-borde);
+  background-color: var(--color-secundario);
+  position: relative;
+  top: 0rem;
 }
+
+button {
+  font-family: "Montserrat", bold;
+  border: 0.125rem solid var(--color-borde);
+  border-radius: 1.6rem;
+  box-shadow: 0 0.25rem 0.5rem var(--color-borde);
+  cursor: pointer;
+  align-items: center;
+
+}
+.button-draw {
+  display: flex;
+  align-items:center;
+  justify-content:center;
+  background-color: var(--color-secundario);
+  width: 8rem;
+  font-size: 1rem;
+  height: 1.875rem;
+  margin-top: 0.1rem;
+}
+
+button:hover {
+  background-color: var(--color-resaltado);
+}
+
 
 /* FIN Contenedor izquierda */
 /*Contenedr derecho*/
 .contenedor__derecha {
-  width: 40%;
-  background-color: lightgray;
-  border: 1px solid black;
+  width: 50%; /* Ocupa la mitad del contenedor principal */
+  background-color: rgb(233, 226, 245); /*rgb(66, 58, 58);*/
+  border: 0px solid var(--color-borde);
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
-  margin-right:  10rem;
+  margin-right:  5rem;
  }
  .seccion3{
-    height: 50%;
-    border: 1px solid black;
+    height: 95%;
+    width: auto;
+    border: 0px solid var(--color-borde);
+    background-color: rgb(48, 5, 121);
+  
+ }
+ .titulo-grafico{
+  padding: 0.3125rem 0.625rem;
+  font-family: Montserrat;
+  font-weight: SemiBold;
+  font-size: 1.75rem;
+  color: var(--color-texto);
+  align-self:center;
  }
 
-
-
- .seccion4{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 50%;
-  border: 1px solid black;
- }
- 
+ #gral__vs__localizada {
+  width: 100%; /* Ocupa todo el ancho del contenedor derecho */
+  height: auto; /* Ajusta la altura proporcionalmente */
+  display: block; /* Evita espacios en blanco debajo del canvas */
+}
 
 /* FIN Contenedor derecha */
 
- /* --- RESPONSIVIDAD --- */
+
+  
+ /* --- RESPONSIVIDAD --- */ 
+ 
 @media (max-width: 768px) {
-
-  
-
+  /* Cambia a diseño de una sola columna */
   .contenedor-principal {
-      width: 100%;
-      flex-direction: column-reverse;
-  
-      
+    width: 100%;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-left: 0px;
   }
 
   .section-title {
-    color: white;
+    color: var(--color-titulo-principal);
     opacity: 100;
   }
   .contenedor__izquierda {
-      margin-left: 20% ;
+      width: 80%;
+      padding: 0%;
+      margin: 0%;
+      justify-content:space-between;
+      
   }
   .contenedor__derecha {
-    margin-right: 20%
-
+    width: 80%;
+    padding: 0%;
+    margin-right: 10px;
+    justify-content:space-between;
+    
+}
+  .seccion1{
+    align-items:center;
+    align-self: center;
+    justify-content: center;
+    width: 50%;
   }
-  .imagen{
- 
-    height: auto; /* La imagen tomará el 100% del header */
-    /* max-height: 200%; /* Asegura que no supere el header */
-     width: 100%;  /* Mantiene la proporción */
-   /*  padding-top: 0.5rem;*/
-  }
-
-  .titulo-instrucciones{
+  .seccion2{
+    align-items: left;
+    justify-content: left;
+    width: 50%;
     margin-left: 0rem;
-    padding: 0px;
-    font-size: 1rem;
+
   }
 
-  .indice {
-    font-family: "Montserrat", bold;
-    font-size: 1.5rem;
-    margin-left: 0rem;
-   }
-  .resultado {
-    font-family: "Montserrat", bold;
-    font-size: 1.75rem;
-    margin-left: 0rem;
-  }
+.input-name{
+  width:70%;
+}
 
+#gral__vs__localizada {
+  width: 100%; /* Ocupa todo el ancho del contenedor derecho */
+  height: auto; /* Ajusta la altura proporcionalmente */
+  display: block; /* Evita espacios en blanco debajo del canvas */
+
+}
 
   /* Oculta el menú normal y muestra la hamburguesa */
   .menu {
-      display: none;
-      flex-direction: column;
-      background-color: --color-header-fondo;
-      position: absolute;
-      right: 0;
-      top: 60px;
-      width: 150px;
-      padding: 1rem;
-      border-radius: 5px;
-  }
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-header-fondo);
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 150px;
+    padding: 1rem;
+    border-radius: 5px;
+}
 
-  .menu a {
-      display: block;
-      padding: 0.5rem 0;
-  }
+.menu a {
+    display: block;
+    padding: 0.5rem 0;
+}
 
-  .menu-hamburguesa {
-      display: flex;
-  }
+.menu-hamburguesa {
+    display: flex;
+    align-items: center;
+}
 
-  /* Muestra el menú cuando se activa */
-  .menu.activo {
-      display: flex;
-  }
+/* Muestra el menú cuando se activa */
+.menu.activo {
+    display: flex;
+}
+}
+
+@media (max-width: 480px) {
+header {
+    font-size: 1.5rem;
+}
+
+.seccion3 {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+}
+
+footer {
+    font-size: 1rem;
+}
 }

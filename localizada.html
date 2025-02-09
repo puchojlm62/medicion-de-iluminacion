@@ -6,7 +6,8 @@
     <title>Medición de Iluminación</title>
     <link rel="stylesheet" href="./estilos/styles3.css">
     <link rel="stylesheet" href="./estilos/colores.css">
-    <script defer src="script.js"></script>  
+    <script defer src="./scripts/script.js"></script>
+    <script src="./scripts/chart.js"></script>
 </head>
 <body>
     
@@ -33,32 +34,75 @@
     <!-- Contenedor principal -->
     <h2 class="section-title">RELACIÓN ILUMINACIÓN GENERAL / LOCALIZADA</h2>
     <main class="contenedor-principal">
+        
         <!-- Contenedor izquierdo -->
         <div class="contenedor__izquierda">
              <!-- Sección 1 -->
+            <h3 class="titulo-tabla">Tabla Relación </h3>
             <section class="seccion1">
- 
+               
+                <table>
+                    <thead>
+                        <tr>
+                            <th>General</th>
+                            <th>Localizada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>125</td>
+                            <td>250</td>
+                        </tr>
+                        <tr>
+                            <td>250</td>
+                            <td>500</td>
+                        </tr>
+                        <tr>
+                            <td>300</td>
+                            <td>1000</td>
+                        </tr>
+                        <tr>
+                            <td>500</td>
+                            <td>2500</td>
+                        </tr>
+                        <tr>
+                            <td>600</td>
+                            <td>5000</td>
+                        </tr>
+                        <tr>
+                            <td>700</td>
+                            <td>10000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="gral__localiza">
+                    <input type="text"  id="nivel-iluminacion-general" class="input-name" oninput="validarNumeroReal(this)" placeholder="General">
+                    <input type="text"  id="nivel-iluminacion-localizada" class="input-name" oninput="validarNumeroReal(this)" placeholder="Localizada">
+                </div>
+
             </section> 
             <!-- Sección 2 -->
             <section class="seccion2">
- 
+                <button class="button-draw" onclick="evaluar()">
+                    <img src="./img/play_circle_outline.png" alt="Ícono para calcular">Evaluar
+                </button>
+                <button class="button-draw" onclick="resetear()">Resetear</button>        
             </section>            
         </div>
 
-        <!-- Contenedor derecho -->
+    <!-- Contenedor derecho -->
+        
         <div class="contenedor__derecha">
+             <canvas id="gral__vs__localizada" ></canvas>
+        <!-- Sección 3 
+                <section style="background-color: transparent;" class="seccion3"> 
+                
+                </section> -->
 
-            <!-- Sección 3 -->
-            <section class="seccion3">
-    
-            </section> 
+        <!-- Sección 4
+                <section class="seccion4">  
 
-
-             <!-- Sección 4 -->
-            <section class="seccion4">
-
-
-            </section> 
+                </section> -->
             
         </div>
 
@@ -92,7 +136,8 @@
             </p>
         </div>
     </div>
-    <script src="app.js"></script>
+    <script src="./scripts/app.js"></script>
+    <script src="./scripts/grafico.js"></script>
 
 </body>
 </html>

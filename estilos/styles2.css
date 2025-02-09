@@ -391,43 +391,43 @@ button:hover {
 
   /* Oculta el menú normal y muestra la hamburguesa */
   .menu {
-      display: none;
-      flex-direction: column;
-      background-color: var(--color-header-fondo);
-      position: absolute;
-      right: 0;
-      top: 60px;
-      width: 150px;
-      padding: 1rem;
-      border-radius: 5px;
-  }
-
-  .menu a {
-      display: block;
-      padding: 0.5rem 0;
-  }
-
-  .menu-hamburguesa {
-      display: flex;
-  }
-
-  /* Muestra el menú cuando se activa */
-  .menu.activo {
-      display: flex;
-  }
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-header-fondo);
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 150px;
+    padding: 1rem;
+    border-radius: 5px;
 }
- 
- @media (max-width: 480px) {
-  header {
-      font-size: 1.5rem;
-  }
 
-  .seccion {
-      font-size: 1.2rem;
-      padding: 1.5rem;
-  }
+.menu a {
+    display: block;
+    padding: 0.5rem 0;
+}
 
-  footer {
-      font-size: 1rem;
-  }
+.menu-hamburguesa {
+    display: flex;
+}
+
+/* Muestra el menú cuando se activa */
+.menu.activo {
+    display: flex;
+}
+}
+
+@media (max-width: 480px) {
+header {
+    font-size: 1.5rem;
+}
+
+.seccion3 {
+    font-size: 1.2rem;
+    padding: 1.5rem;
+}
+
+footer {
+    font-size: 1rem;
+}
 }

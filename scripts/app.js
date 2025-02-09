@@ -151,6 +151,23 @@ function limpiarCajasResultados(){
   }
 }
 
+//A usar en localizada.html
+function evaluar() {  // Ubica las rectas horizontales y verticales de acuerdo de acuerdo con los datos
+  
+    actualizarGrafico(parseFloat(document.getElementById('nivel-iluminacion-general').value), parseFloat(document.getElementById('nivel-iluminacion-localizada').value));
+  return;
+}
+
+function resetear() {  //resetea el gráfico a los valores inciales de localizada y general = 0
+ 
+    document.getElementById('nivel-iluminacion-general').value='';
+    document.getElementById('nivel-iluminacion-localizada').value='';
+
+    actualizarGrafico(0, 0);
+  return;
+
+}
+
 
 // Declara las variables
 let largo = 0;
@@ -161,5 +178,6 @@ let indiceLocal = 0;
 let indiceLocalAdoptado = 0;
 let nivelIluminacionRequerido = 0;
 let parrafo ="";
+
 
 
