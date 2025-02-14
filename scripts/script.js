@@ -66,3 +66,75 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
+
+
+window.addEventListener('DOMContentLoaded', (event) => {
+  const inputs = {
+    largo: document.getElementById('largo'),
+    ancho: document.getElementById('ancho'),
+    luminaria: document.getElementById('luminaria')
+  };
+
+  for (const key in inputs) {
+    const boton = document.getElementById(`boton${key.charAt(0).toUpperCase() + key.slice(1)}`);
+    if (boton && inputs[key]) {
+      boton.addEventListener('click', () => startRecognition(key));
+    } else {
+      console.error(`No se encontró el botón o input para ${key}.`);
+    }
+  }
+
+  let streamActivo = null; // Variable para almacenar el MediaStream activo
+
+  function startRecognition(inputId) {
+    if (streamActivo && streamActivo.active) { // Verifica si el stream está activo
+      console.log("Usando MediaStream activo.");
+      iniciarReconocimiento(streamActivo, inputId);
+    } else {
+      console.log(`Intentando acceder al micrófono para ${inputId}...`);
+      navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+          console.log("Permiso concedido:", stream);
+          streamActivo = stream; // Guarda el MediaStream activo
+          iniciarReconocimiento(stream, inputId);
+        })
+        .catch(err => {
+          console.error("Error al acceder al micrófono:", err);
+          inputs[inputId].placeholder = "Permiso de micrófono denegado o error: " + err.message;
+        });
+    }
+  }
+
+  function iniciarReconocimiento(stream, inputId) {
+    const recognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (recognition && typeof recognition === 'function') {
+      console.log("API de reconocimiento de voz encontrada:", recognition);
+      const recognizer = new recognition();
+      recognizer.lang = 'es-ES';
+
+      recognizer.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        inputs[inputId].value = transcript;
+      };
+
+      recognizer.onerror = (event) => {
+        console.error("Error en el reconocimiento de voz:", event.error);
+        inputs[inputId].placeholder = "Error: " + event.error;
+      };
+
+      recognizer.onstart = () => {
+        console.log("Reconocimiento de voz iniciado.");
+      };
+
+      recognizer.onend = () => {
+        console.log("Reconocimiento de voz finalizado.");
+      };
+
+      recognizer.start();
+    } else {
+      console.error("Reconocimiento de voz no compatible o no inicializado correctamente.");
+      inputs[inputId].placeholder = "Reconocimiento de voz no compatible.";
+    }
+  }
+});

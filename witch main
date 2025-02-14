@@ -1,0 +1,29 @@
+[33m6178eca[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdesarrollo[m[33m, [m[1;31morigin/desarrollo[m[33m)[m Nueva version 1.0.1 con uso de sessionStorage
+[33mfd9795b[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Agregar funcionalidad grafica a traves de chart.js se modificaron estilos y se termino de desarrollar la aplicacion completa en su versiòn 1.0.0
+[33m5def04d[m Actualizar estilos licencia htmls y readme
+[33m9fc1e96[m Modificar extensiòn de readme y license y ajuste en el footer
+[33m8407dec[m Añadida mejoras en las funciones y nuevo archivos localizada.html y styles3.css
+[33me07db07[m Cambios en estilos y encabezados
+[33mabe32e8[m Merge pull request #1 from puchojlm62/desarrollo
+[33m3ed025b[m Crear LICENSE-txt
+[33mdf35a11[m Cambios en el footer
+[33mafa9de4[m Actualizar estilos
+[33mc19dcca[m Añadir cambios en app.js index.html mediciones.htm y script.js para realizar mejoras en footer
+[33mc703128[m Crear LICENSE.txt
+[33m31d7151[m Actualiza versión de README.md
+[33m1dc7057[m Añade un archivo de estilo y script y mejora responsibilidad
+[33m4cf1c8f[m Añade responsibidad - modificación app.js y styles.css
+[33me5b820f[m Añadir cambios app.js mediciones.html y styles.css
+[33mc8c0199[m Añadir cambios en app.js index.html styles.css y mediciones.html
+[33m1ac78e0[m Agrega cambios en index.html app.js y styles.css
+[33m97e5c79[m Agregar carpeta img con imagenes
+[33m75eaf00[m Actualiza README.md
+[33m5fc6db3[m Añade header y estilos a index.html
+[33m54c68c8[m Actualiza contacto.html
+[33m6a6d252[m Actualiza el index.html
+[33mfbfdce5[m Agrega el archivo de contacto
+[33m424f012[m Crea el index.html
+[33m8162f95[m Crea el app.js
+[33m7998946[m Update README.md
+[33md49a159[m actualiza el README.md
+[33mae153b1[m Initial commit
