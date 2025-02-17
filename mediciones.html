@@ -32,7 +32,8 @@
         <h2 class="section-title">MEDICIONES</h2>
         <section class="contenedor-principal">
            <div class="contenedor__izquierda">
-                <h3 class="titulo-input-mediciones">Puntos Medidos en lux</h3>
+     
+                <h4 class="titulo-instrucciones">Puntos Medidos en lux</h4>
                 <table id="tabla">
                     <thead>
                         <tr>
@@ -44,17 +45,18 @@
 
                     </tbody>
                 </table>
-                <br>
+                
                 <section class="seccion2">
-                    <button class="button-draw" onclick="leerTabla()">
-                        <img src="./img/play_circle_outline.png" alt="Ícono para calcular">Calcular
-                    </button>
-                    <button class="button-draw" onclick="borrarTabla()">Borrar Todo</button>       
+                    <h4 class="titulo-instrucciones">Introduce el nivel de iluminación requerido:</h4>
+                    <input type="text"  id="nivel-iluminacion-requerido" class="input-name" oninput="validarNumeroReal(this)" placeholder="Nivel iluminacion">
+                    
                 </section>
            </div>
            <div class="contenedor__derecha">
-                <p class="titulo-input-nivel">Introduce el nivel de iluminación requerido acorde a la legislación vigente</p>
-                <input type="text"  id="nivel-iluminacion-requerido" class="input-name" oninput="validarNumeroReal(this)" placeholder="Nivel iluminacion">
+                <button class="button-draw" onclick="leerTabla()">
+                    <img src="./img/play_circle_outline.png" alt="Ícono para calcular">Calcular
+                </button>
+                <button class="button-draw" onclick="borrarTabla()">Borrar Todo</button>       
                 <h3 class="titulo-output">RESULTADOS </h3>
                 <p class="titulo-output-mediciones">Cantidad de mediciones realizadas: <span class= "resultado-mediciones" id="nroMediciones">-</span></p>
                 <p class="titulo-output-mediciones">Promedio (Emedio) en lux: <span class= "resultado-mediciones" id="emedio">-</span></p>

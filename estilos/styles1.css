@@ -298,10 +298,12 @@ button:hover {
   margin-right: 6rem;
   margin-top: 2rem;
 }
-.imagen{
-  width: auto;  /* Mantiene la proporción */
-  padding-top: 0.5rem;
-  z-index: 1; /* La imagen estará por debajo del menú */
+/* Estilos para la imagen */
+.imagen {
+  max-width: 100%; /* Ancho máximo para la imagen en escritorio */
+  height: auto; /* Alto automático para mantener la proporción */
+  display: block;
+  margin: 1rem auto; /* Centrar la imagen */
 }
 .titulo-output{
   padding: 0.2rem 0.4rem;
@@ -313,79 +315,161 @@ button:hover {
 }
 .indice {
   font-family: "Montserrat", bold;
-  font-size: 2rem;
-  font-weight: 3rem;
-  color:var(--color-texto)/*rgb(26, 30, 48);*/
+  font-size: 1.2rem;
+  color:var(--color-texto);
+  padding-top: 1rem;
+
 }
 .resultado {
   font-family: "Montserrat", bold;
-  font-size: 2.25rem;
-  font-weight: 4rem;
+  font-size: 1.5rem;
   color:var(--color-resultado);
   align-items: center;
+  padding-top: 1rem;
 }
+
+.contenedor-texto{
+  display: flex;
+  flex-direction: column;
+}
+
+
 
 /* FIN Contenedor derecha */
 
 
-
-
- /* --- RESPONSIVIDAD --- */
+/* --- RESPONSIVIDAD --- */
 @media (max-width: 768px) {
-
- 
-  /* Cambia a diseño de una sola columna */
-
-    .contenedor-principal {
-      width: 100%;
-      flex-direction: column-reverse;
+  /* Ajustes para el header */
+  header {
+      flex-direction: row;
+      justify-content: space-between;
       align-items: center;
-      margin-left: 0px;
-
-  }
-
-  .section-title {
-    color: var(--color-titulo-principal);
-    opacity: 100;
-  }
-  .contenedor__izquierda {
-      width: 100%;
-      padding: 0%;
- 
-  }
-
-  .imagen{
- 
-    height: auto; /* La imagen tomará el 100% del header */
-    width: 17.5rem;  /* Mantiene la proporción */
-   
-  }
-
-  /* Oculta el menú normal y muestra la hamburguesa */
-  .menu {
-      display: none;
-      flex-direction: column;
-      background-color: var(--color-header-fondo);
-      position: absolute;
-      right: 0;
-      top: 60px;
-      width: 150px;
+      height: auto;
       padding: 1rem;
-      border-radius: 5px;
+      flex-wrap: nowrap;
+  }
+
+  .logo {
+      height: 4rem;
+  }
+
+  h1 {
+      font-size: 1.5rem;
+  }
+
+  nav {
+      text-align: right;
+  }
+
+  /* Ajustes para el menú */
+  .menu {
+    display: none;
+    flex-direction: column;
+    background-color: var(--color-header-fondo);
+    position: absolute;
+    right: 0;
+    top: 60px;
+    width: 150px;
+    padding: 1rem;
+    border-radius: 5px;
   }
 
   .menu a {
       display: block;
       padding: 0.5rem 0;
+      color: var(--color-header-texto);
+      text-decoration: none;
+  }
+
+  .menu.activo {
+      display: flex;
   }
 
   .menu-hamburguesa {
       display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
   }
 
-  /* Muestra el menú cuando se activa */
-  .menu.activo {
+  .menu-hamburguesa div {
+      width: 30px;
+      height: 4px;
+      background-color: var(--color-header-texto);
+      border-radius: 2px;
+  }
+
+  /* Ajustes para el main */
+  .contenedor-principal {
+      width: 100%;
+      flex-direction: column; /* Una sola columna */
+      align-items: center;
+      margin: 1rem 0; /* Margen arriba y abajo */
+      padding: 1rem;
+      border-radius: 2rem 2rem 0 0;
+  }
+
+  .section-title {
+      font-size: 1.5rem;
+  }
+
+  .contenedor__izquierda {
+      width: 100%;
+      margin: 1rem 0;
+      padding: 0;
+  }
+
+  .titulo-input,
+  .titulo-instrucciones {
+      font-size: 1.2rem;
+  }
+
+  .input-name {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.5rem;
+  }
+
+  /* Ajustes para la imagen */
+  .contenedor__derecha {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0;
+    display: flex; /* Habilitar flexbox */
+    flex-direction: column; /* Disponer elementos en columna */
+    align-items: center; /* Centrar horizontalmente */
+}
+
+
+.imagen {
+  max-width: 90%; /* Ancho máximo para la imagen en responsivo */
+  height: auto;
+}
+
+.titulo-output {
+  font-size: 1.2rem; /* Tamaño de fuente para responsivo */
+}
+
+.indice,
+.resultado {
+  font-size: 1rem; /* Tamaño de fuente para responsivo */
+  width: 100%; /* Ocupan todo el ancho */
+  text-align: center; /* Centrar el texto */
+}
+
+  /* Ajustes para los botones */
+  .seccion2 {
       display: flex;
+      flex-direction: column; /* Botones en columna */
+      align-items: center; /* Centrar horizontalmente */
+      width: 100%; /* Ocupar todo el ancho */
+      margin: 1rem 0; /* Margen arriba y abajo */
+  }
+
+  .button-draw,
+  .button-voz {
+      width: 80%; /* Ancho para los botones */
+      margin: 0.5rem 0; /* Margen entre botones */
   }
 }
- 

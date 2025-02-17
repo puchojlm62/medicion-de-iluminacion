@@ -35,13 +35,13 @@
             <h3 class="titulo-input">Medidas del Local </h3>
             <h4 class="titulo-instrucciones">Ingrese largo del local (metros) </h4>
             <input type="text" oninput="validarNumeroReal(this)" id="largo" class="input-name" placeholder="Largo">
-            <button class="button-voz" id="botonLargo" onclick="startRecognition('largo')">Ingresar largo por voz</button>
+ 
             <h4 class="titulo-instrucciones">Ingrese ancho del local (metros) </h4>
             <input type="text" oninput="validarNumeroReal(this)" id="ancho" class="input-name" placeholder="Ancho">
-            <button class="button-voz" id="botonAncho" onclick="startRecognition('ancho')">Ingresar ancho por voz</button>
+ 
             <h4 class="titulo-instrucciones">Ingrese altura de las luminarias (metros) </h4>
             <input type="text" oninput="validarNumeroReal(this)" id="luminaria" class="input-name" placeholder="Altura luminarias">
-            <button class="button-voz" id="botonLuminaria" onclick="startRecognition('luminaria')">Ingresar altura luminarias por voz</button>
+
             <section class="seccion2">
                 <button class="button-draw" onclick="calcular()">
                     <img src="./img/play_circle_outline.png" alt="Ícono para calcular">Calcular
@@ -51,10 +51,16 @@
         </div>
 
         <div class="contenedor__derecha">
-            <img src="./img/puntosMuestreo.png" class="imagen" alt="Fórmula para obtener punto de muestreo">
-            <h3 class="titulo-output">RESULTADOS </h3>
-            <p1 class= "indice" id="indice">El índice del local es:</p1>
-            <p2 class= "resultado" id="resultado">Puntos mínimos de medición:</p2>
+            
+                <div class="contenedor-imagen">
+                    <img src="./img/puntosMuestreo.png" class="imagen" alt="Fórmula para obtener punto de muestreo">
+                </div>
+                <div class="contenedor-texto">
+                    <h3 class="titulo-output">RESULTADOS </h3>
+                    <p1 class="indice" id="indice">El índice del local es:</p1>
+                    <p2 class="resultado" id="resultado">Puntos mínimos de medición:</p2>
+                </div>
+            
         </div>
         
     </main>
