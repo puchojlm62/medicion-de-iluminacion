@@ -1,27 +1,72 @@
-// Rutinas para almacenar temperalmente los datos de mediciones.html
-document.addEventListener("DOMContentLoaded", function() {
+// Rutinas para almacenar temporalmente los datos de mediciones.html
+document.addEventListener("DOMContentLoaded", function () {
     let tabla = document.getElementById("tabla");
     let nivelIluminacionInput = document.querySelector("#nivel-iluminacion-requerido");
 
-    let tbody = document.querySelector("#tabla tbody");
+    // Modificación aquí: Crear la tabla con 8 columnas (4 numéricas, 4 editables)
+    let tbody = tabla.querySelector("tbody");
+    let contador = 1;
+
     for (let i = 0; i < 10; i++) {
         let fila = document.createElement("tr");
-        for (let j = 0; j < 5; j++) {
-            let celda = document.createElement("td");
-            celda.textContent = "";
-            celda.setAttribute("contenteditable", "true");
-            fila.appendChild(celda);
-        }
+
+        // Columna 1: Número (No editable)
+        let celdaNum1 = document.createElement("td");
+        celdaNum1.textContent = contador;
+        fila.appendChild(celdaNum1);
+
+        // Columna 2: Editable
+        let celdaEditable1 = document.createElement("td");
+        celdaEditable1.setAttribute("contenteditable", "true");
+        celdaEditable1.setAttribute("id", `m${contador}`); // Asigna un ID único
+        fila.appendChild(celdaEditable1);
+
+        // Columna 3: Número (No editable)
+        let celdaNum2 = document.createElement("td");
+        celdaNum2.textContent = contador + 10;
+        fila.appendChild(celdaNum2);
+
+        // Columna 4: Editable
+        let celdaEditable2 = document.createElement("td");
+        celdaEditable2.setAttribute("contenteditable", "true");
+        celdaEditable2.setAttribute("id", `m${contador + 10}`); // Asigna un ID único
+        fila.appendChild(celdaEditable2);
+
+        // Columna 5: Número (No editable)
+        let celdaNum3 = document.createElement("td");
+        celdaNum3.textContent = contador + 20;
+        fila.appendChild(celdaNum3);
+
+        // Columna 6: Editable
+        let celdaEditable3 = document.createElement("td");
+        celdaEditable3.setAttribute("contenteditable", "true");
+        celdaEditable3.setAttribute("id", `m${contador + 20}`); // Asigna un ID único
+        fila.appendChild(celdaEditable3);
+
+        // Columna 7: Número (No editable)
+        let celdaNum4 = document.createElement("td");
+        celdaNum4.textContent = contador + 30;
+        fila.appendChild(celdaNum4);
+
+        // Columna 8: Editable
+        let celdaEditable4 = document.createElement("td");
+        celdaEditable4.setAttribute("contenteditable", "true");
+        celdaEditable4.setAttribute("id", `m${contador + 30}`); // Asigna un ID único
+        fila.appendChild(celdaEditable4);
+
         tbody.appendChild(fila);
+        contador++; // Incrementa el contador para la siguiente fila
     }
+
 
     let datosGuardadosTabla = sessionStorage.getItem("tablaMediciones");
     if (datosGuardadosTabla) {
         let datosTabla = JSON.parse(datosGuardadosTabla);
         [...tabla.rows].forEach((fila, index) => {
-            let celdas = fila.querySelectorAll("td");
+            // Recupera solo los valores de las celdas editables
+            const celdasEditables = fila.querySelectorAll("td:nth-child(even)");
             if (datosTabla[index]) {
-                celdas.forEach((celda, i) => {
+                celdasEditables.forEach((celda, i) => {
                     if (datosTabla[index][i]) {
                         celda.textContent = datosTabla[index][i];
                     }
@@ -68,8 +113,9 @@ document.addEventListener("DOMContentLoaded", function() {
     tabla.addEventListener("input", function () {
         let datosAGuardar = {};
         [...tabla.rows].forEach((fila, index) => {
-            let celdas = fila.querySelectorAll("td");
-            let valoresFila = Array.from(celdas).map((celda) => celda.textContent.trim());
+            // Guarda solo los valores de las celdas editables
+            const celdasEditables = fila.querySelectorAll("td:nth-child(even)");
+            let valoresFila = Array.from(celdasEditables).map((celda) => celda.textContent.trim());
             if (valoresFila.some(valor => valor !== "")) {
                 datosAGuardar[index] = valoresFila;
             }
@@ -99,8 +145,8 @@ function borrarTabla() {
     sessionStorage.removeItem("ilumGeneralColor");
     sessionStorage.removeItem("uniformidadColor");
 
-    // Borrar los valores de la tabla (existente - sin cambios)
-    document.querySelectorAll("#tabla tbody td").forEach(celda => {
+    // Borrar los valores de la tabla (existente - SIN CAMBIOS, borra todas las celdas)
+    document.querySelectorAll("#tabla tbody td:nth-child(even)").forEach(celda => {
         celda.textContent = "";
     });
 
@@ -123,7 +169,7 @@ function borrarTabla() {
     }, 100);
 }
 
-// Fin rutins para almacenar temporalmente las tablas
+// Fin rutinas para almacenar temporalmente las tablas
 
 //rutina para almacenar index.html
 
@@ -167,7 +213,7 @@ window.borrarTodo = function () {
 // fin rutina index.html
 
 
-//Esta funciòn borra las caja y resultados de index.htlm
+//Esta función borra las caja y resultados de index.htlm
 function borrarTodo() {
   document.querySelector('#largo').value = ''
   document.querySelector('#ancho').value = ''
@@ -219,6 +265,9 @@ function calcular() {
     // Guardar las frases completas en sessionStorage
     sessionStorage.setItem("fraseIndice", fraseIndice);
     sessionStorage.setItem("fraseResultado", fraseResultado);
+
+     // Guardar indiceLocalAdoptado en sessionStorage
+    sessionStorage.setItem("indiceLocalAdoptado", indiceLocalAdoptado);
 }
 
 //rutina para recuperar las frases de index.html
@@ -264,7 +313,8 @@ function limpiarCajasResultados(){
 //Esta función lee los valores de la tabla en la página mediciones y realiza los cálculos de promedio y mínimo
 function leerTabla() {
     let mediciones = [];
-    let celdas = document.querySelectorAll("#tabla tbody td");
+    // Selecciona solo las celdas editables
+    let celdas = document.querySelectorAll("#tabla tbody td:nth-child(even)");
 
     for (let celda of celdas) {
         let valor = celda.textContent.trim();
@@ -370,7 +420,4 @@ let indiceLocal = 0;
 let indiceLocalAdoptado = 0;
 let nivelIluminacionRequerido = 0;
 let parrafo ="";
-
-
-
 

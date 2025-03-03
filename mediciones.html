@@ -7,7 +7,77 @@
     <link rel="stylesheet" href="./estilos/styles2.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./estilos/colores.css">
-    <script defer src="./scripts/script.js"></script>  
+    <script defer src="./scripts/script.js"></script>
+    <script src="./lib/jszip.min.js"></script>
+    <script src="./lib/docxtemplater.min.js"></script>
+    <script src="./lib/FileSaver.min.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EEXJXBJBQB"></script>
+	<script>
+  	    window.dataLayer = window.dataLayer || [];
+  	    function gtag(){dataLayer.push(arguments);}
+  	    gtag('js', new Date());
+  	    gtag('config', 'G-EEXJXBJBQB');
+	</script>
+    <style>
+        /* Estilos CSS para el Modal y las opciones de plantilla (Copiados del archivo de bandas de octava) */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 50%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .plantilla-opciones {
+            margin-bottom: 15px;
+        }
+
+        .plantilla-opciones label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .modal-botones {
+            text-align: right;
+            margin-top: 20px;
+        }
+
+        .modal-botones button {
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
     <main class="main-content">
@@ -31,69 +101,84 @@
         </header>
         <h2 class="section-title">MEDICIONES</h2>
         <section class="contenedor-principal">
-           <div class="contenedor__izquierda">
-     
+            <div class="contenedor__izquierda">
                 <h4 class="titulo-instrucciones">Puntos Medidos en lux</h4>
                 <table id="tabla">
-                    <thead>
-                        <tr>
- 
-                        </tr>
-                    </thead>
                     <tbody>
-                        <!-- Se generan 10 filas con 5 columnas -->
-
+                        <!-- Se generan 10 filas con 8 columnas -->
                     </tbody>
                 </table>
                 
                 <section class="seccion2">
                     <h4 class="titulo-instrucciones">Introduce el nivel de iluminación requerido:</h4>
                     <input type="text"  id="nivel-iluminacion-requerido" class="input-name" oninput="validarNumeroReal(this)" placeholder="Nivel iluminacion">
-                    
                 </section>
-           </div>
-           <div class="contenedor__derecha">
-                <button class="button-draw" onclick="leerTabla()">
-                    <img src="./img/play_circle_outline.png" alt="Ícono para calcular">Calcular
-                </button>
-                <button class="button-draw" onclick="borrarTabla()">Borrar Todo</button>       
-                <h3 class="titulo-output">RESULTADOS </h3>
-                <p class="titulo-output-mediciones">Cantidad de mediciones realizadas: <span class= "resultado-mediciones" id="nroMediciones">-</span></p>
-                <p class="titulo-output-mediciones">Promedio (Emedio) en lux: <span class= "resultado-mediciones" id="emedio">-</span></p>
-                <p class="titulo-output-mediciones">Valor mínimo (Emínimo) en lux: <span class= "resultado-mediciones" id="minimo">-</span></p>
-                <p class ="titulo-iluminacion-general" id="ilum-general"></p>
-                <p class ="titulo-iluminacion-general" id="uniformidad"></p>
-           </div>
+            </div>
+            <div class="contenedor__derecha">
+                <section class="botonera">
+                    <button class="button-draw" onclick="leerTabla()">
+                        <img src="./img/play_circle_outline.png" alt="Ícono para calcular">Calcular
+                    </button>
+                    <button class="button-draw" onclick="borrarTabla()">Borrar Todo</button>
+                    <!-- Botón y Modal para Generar Informe -->
+                    <button class="button-draw" id="boton-informeBo" onclick="informeResultado()">Generar Informe</button>
+                    <div id="modalPlantilla" class="modal">
+                        <div class="modal-content">
+                            <span class="close" id="cerrarModalPlantilla">×</span>
+                            <h2>Generar Informe</h2>
+                            <div class="plantilla-opciones">
+                                <p class="titulo-opciones">Seleccionar Plantilla:</p>
+                                <label>
+                                    <input type="radio" name="plantillaModalSeleccion" value="default" checked> Usar Plantilla Predeterminada
+                                </label>
+                                <label>
+                                    <input type="radio" name="plantillaModalSeleccion" value="subir"> Subir mi Plantilla (.docx):
+                                </label>
+                                <input type="file" id="plantillaModalUpload" accept=".docx" style="display: none;">
+                            </div>
+                            <div class="modal-botones">
+                                <button class="button-draw" id="boton-generarInformeModal">Generar Informe</button>
+                                <button class="button-draw" id="boton-cancelarInformeModal">Cancelar</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>    
+                <h3 class="titulo-output">RESULTADOS</h3>
+                <p class="titulo-output-mediciones">Cantidad de mediciones realizadas: <span class="resultado-mediciones" id="nroMediciones">-</span></p>
+                <p class="titulo-output-mediciones">Promedio (Emedio) en lux: <span class="resultado-mediciones" id="emedio">-</span></p>
+                <p class="titulo-output-mediciones">Valor mínimo (Emínimo) en lux: <span class="resultado-mediciones" id="minimo">-</span></p>
+                <p class="titulo-iluminacion-general" id="ilum-general"></p>
+                <p class="titulo-iluminacion-general" id="uniformidad"></p>
+                   
+            </div>
         </section>
         <footer>
-	        <p>© 2025 ILUM App Web | <a href="#" id="openModal">Acerca de</a></p>
-        	<p>I.S.P. N° 65 Amelia Díaz - San Vicente, Prov. Santa Fe</p>
-        	<div class="social-icons">
-            		<a href="https://www.facebook.com" target="_blank">
-                		<img src="./img/facebook.png" alt="Facebook">
-            		</a>
-            		<a href="https://www.instagram.com" target="_blank">
-                		<img src="./img/instagram.png" alt="Instagram">
-            		</a>
-        	</div>
+            <p>© 2025 ILUM App Web | <a href="#" id="openModal">Acerca de</a></p>
+            <p>I.S.P. N° 65 Amelia Díaz - San Vicente, Prov. Santa Fe</p>
+            <div class="social-icons">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="./img/facebook.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="./img/instagram.png" alt="Instagram">
+                </a>
+            </div>
         </footer>
         <!-- Modal de "Acerca de" -->
         <div id="modalAcerca" class="modal">
             <div class="modal-content">
-                <span class="close">&times;</span>
+                <span class="close">×</span>
                 <h2>Acerca de</h2>
-                <p class="text__modal">Esta es una aplicación web de código abierto bajo la 
+                <p class="text__modal">Esta es una aplicación web de código abierto bajo la
                     <a href="LICENSE.html" target="_blank">licencia MIT.</a>
                 </p>
                 <p class="text__modal">Desarrollado por: Ing. Jorge Mendoza</p>
-                <p class="text__modal">Versión 1.0.1 - 2025 - <a href="README.html" target="_blank">README.</a>
-    
+                <p class="text__modal">Versión 1.1.0 - 2025 - <a href="README.html" target="_blank">README.</a>
                 </p>
             </div>
         </div>
-
     </main>
-
     <script src="./scripts/app.js"></script>
+    <script src="./scripts/informe.js"></script>
 </body>
 </html>
